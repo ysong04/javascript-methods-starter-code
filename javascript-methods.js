@@ -12,8 +12,19 @@ Yoomin Song, Pakeeza Rashid, Asad Rafique
 ----------------------------------------------------------*/
 
 // MAP //
-Array.prototype.myMap = function(callbackFn) {
-  // Place your code here.
+Array.prototype.myMap = function (cbFunc) {
+    let final = [];                               // Creating an new array to return at the end
+
+    for (let i = 0; i < this.length; i++) {     // Passes through all of the array
+        if (this[i] === undefined)
+        {
+          continue;    // If an element in the array is undefined, skip it
+        }
+
+        final[i] = cbFunc(this[i], i, this);      // Execute the callback function for each element in array
+    }
+
+    return final;     // Return resulting array
 };
 
 // FILTER //
