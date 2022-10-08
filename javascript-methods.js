@@ -86,9 +86,26 @@ Array.prototype.myEvery = function(callbackFn) {
 };
 
 // REDUCE //
-Array.prototype.myReduce = function(callbackFn) {
-  // Place your code here.
+Array.prototype.myReduce = function (cbFunc, startingvalue) {
+    if (this.length === 0 && !startingvalue) {     // If the array is empty & no starting value is supplied,
+        throw new TypeError();                  // throw a TypeError
+    }
+
+    let accumulator = (initialVal !== undefined) ? startingvalue : undefined;      // If startingvalue is supplied, accumulator = startingvalue
+                                                                        // Otherwise, accumulator = undefined
+    for (let i = 0; i < this.length; i++) {         // Iterate through entire array once
+        if (this[i] === undefined) continue;        // If an element in the array is undefined, skip it
+
+        if (accumulator !== undefined) {
+            accumulator = cbFunc(acc, this[i], i, this);    // If accumulator already has a value, execute callback function
+        } else {
+            accumulator = this[i]                           // If accumulator is undefined, assign to it the value
+        }                                           // found at the current index of the array
+    }
+
+    return accumulator;         // Return accumulator results
 };
+
 
 // INCLUDES //
 Array.prototype.myIncludes = function(searchElement) {
