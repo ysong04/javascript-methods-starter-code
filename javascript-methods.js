@@ -20,10 +20,8 @@ Array.prototype.myMap = function (cbFunc) {
         {
           continue;    // If an element in the array is undefined, skip it
         }
-
         final[i] = cbFunc(this[i], i, this);      // Execute the callback function for each element in array
     }
-
     return final;     // Return resulting array
 };
 
@@ -44,7 +42,7 @@ Array.prototype.myFilter = function(callbackFn) {
         // it was placed in the input array so that there are no empty slots in the result array
     }
   }
-  return result;// Place your code here.
+  return result;
 };
 
 // SOME //
@@ -71,7 +69,20 @@ Array.prototype.mySome = function(callbackFn) {
 
 // EVERY //
 Array.prototype.myEvery = function(callbackFn) {
-  // Place your code here.
+
+    for (let i = 0  ; i < this.length ; i++){
+      if (this[i] === undefined)
+      {
+        continue;    // If an element in the array is undefined, skip it
+      }
+
+      if( !cbFunc(this[i], i, this))
+      {
+        return false;
+      }
+    }
+
+    return true;
 };
 
 // REDUCE //
@@ -81,25 +92,66 @@ Array.prototype.myReduce = function(callbackFn) {
 
 // INCLUDES //
 Array.prototype.myIncludes = function(searchElement) {
-  // Place your code here.
+    if (Index < this.length) { // Checks if Index < this.length. the length of the array.
+        for (let i = 0; i < this.length; i++) { // Iterates through the array.
+            if (this[i] === searchElement) {
+                return true; // Returns true if item is in the array.
+            }
+        }
+        return false; // Returns false is item is not in the array.
+    }
+    else {
+        return false; // Returns false if Index >= this.length.
+    }
 };
 
 // INDEXOF //
 Array.prototype.myIndexOf = function(searchElement) {
-  // Place your code here.
+    if (Indexof < this.length) { // Checks if Indexof is less than the size of the array
+        for (let i = Indexof; i < this.length; i++) { // Iterates through the array.
+            if (this[i] === searchElement) {
+                return i; // Returns the first index of the element in the array.
+            }
+        }
+        return -1; // Returns -1 if the element is not found.
+    }
+    else {
+        return -1; // Returns -1 if fromIndex is greater than or equal to the array size.
+    }
 };
 
 // LASTINDEXOF //
 Array.prototype.myLastIndexOf = function(searchElement) {
-  // Place your code here.
+  if (fromIndex >= this.length) {
+    for (let i = fromIndex; i > -1; i-=1) {  // iterating backword, beggining at index 'fromIndex'
+      if (this[i] === searchElement) {
+        return i; // value found
+      }
+    }
+  }
+
+  return -1; // if value not found, return -1
 };
 
 // KEYS //
 Object.myKeys = function(object) {
-  // Place your code here.
+    var keys = [];   //create an empty array
+    for(const property in obj){ //iterates through property in given obj
+      keys.push(property); // pushes property name in new
+    }
+    return keys;
 };
 
-// VALUES //
+/* The Object.values() method returns an array of a given object's
+own enumerable property values, in the same order as that provided
+by a for...in loop. */
+
 Object.myValues = function(object) {
-  // Place your code here.
+    var valueArray = [];         //Create an empty array
+    const keysArray = Object.myKeys(object);
+    //We want to use for..of because the indices are already enumerated
+    for (const keys in keysArray){ //Iterates through all keys in given keysArray
+      valueArray.push(object[keys]); //Pushes key values in new array
+    }
+    return valueArray;
 };
