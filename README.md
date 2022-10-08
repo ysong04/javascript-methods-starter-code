@@ -1,5 +1,8 @@
-Assignment 2
-Javascript method implementation
+# Assignment2 - JavaScript Methods
 
-
-Group Members: Pakeeza Rashid, Yoomin Song, Asad Rafique
+### Group Members
+| Name       | Github              |
+| --------------- | ----------------- |
+| Yoomin Song | ysong04 |
+| Pakeeza Rashide  | Pakeezarashid27 |
+| Asada Rafique | AsadRafique98 |
