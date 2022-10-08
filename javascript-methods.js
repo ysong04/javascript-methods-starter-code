@@ -38,8 +38,9 @@ Array.prototype.myFilter = function(callbackFn, thisArg) {
         result_array.push(array[i]);
       };
     }
-    else {
-      if(callbackFn(...callback_arguments)) { //callback function on each element 
+
+    if(thisArg) {
+      if(callbackFn.call(thisArg, ...callback_arguments)) { //callback function on each element 
         result_array.push(array[i]);
       };
     }
@@ -108,7 +109,8 @@ Array.prototype.myReduce = function(callbackFn, initialValue) {
     total = callbackFn(total, this[i], i, this);
   }
   return total;
-};// Place your code here.
+};
+
 
 // INCLUDES //
 Array.prototype.myIncludes = function(searchElement) {

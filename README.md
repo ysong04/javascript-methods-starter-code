@@ -4,5 +4,5 @@
 | Name       | Github              |
 | --------------- | ----------------- |
 | Yoomin Song | ysong04 |
-| Pakeeza Rashide  | Pakeezarashid27 |
+| Pakeeza Rashid  | Pakeezarashid27 |
 | Asada Rafique | AsadRafique98 |
